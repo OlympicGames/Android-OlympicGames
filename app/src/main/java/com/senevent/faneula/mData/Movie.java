@@ -1,15 +1,26 @@
 package com.senevent.faneula.mData;
 
+import org.parceler.Parcel;
+
 /**
  * Created by Oclemmy on 4/12/2016 for ProgrammingWizards Channel.
  */
-public class Movie {
+
+@Parcel
+public class Movie  {
 
     private String name;
     private String url;
     private String detail;
+    private String comment;
 
     public Movie() {
+    }
+
+    public Movie(String name, String url, String detail) {
+        this.name = name;
+        this.url = url;
+        this.detail = detail;
     }
 
     public String getName() {
@@ -36,5 +47,15 @@ public class Movie {
         this.detail = detail;
     }
 
+    public String getComment() {
+        return comment;
+    }
 
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String toString() {
+        return "myVar: " + name + " | myOtherVar: " + url;
+    }
 }

@@ -90,7 +90,7 @@ public class FireBaseClient {
             m.setName(ds.getValue(Movie.class).getName());
             m.setUrl(ds.getValue(Movie.class).getUrl());
             m.setDetail(ds.getValue(Movie.class).getDetail());
-
+            m.setDetail(ds.getValue(Movie.class).getComment());
             movies.add(m);
         }
 

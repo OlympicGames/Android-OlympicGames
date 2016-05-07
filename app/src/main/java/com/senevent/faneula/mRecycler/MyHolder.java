@@ -39,7 +39,7 @@ public class MyHolder extends RecyclerView.ViewHolder {
         img= (ImageView) itemView.findViewById(R.id.movieImage);
 
 
-      /* itemView.setOnClickListener(new View.OnClickListener() {
+    /*   itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
               //  Intent detailIntent = new Intent(v.getContext(), type.class);
@@ -50,10 +50,21 @@ public class MyHolder extends RecyclerView.ViewHolder {
                 Intent intent = new Intent(view.getContext(), DetailFragment.class);
                //intent.putExtra("MyClass", MyHolder.getOrderId());
             //    intent.putExtra(DetailFragment.ARG_DETAIL_ID, String.valueOf(getLayoutPosition()));
-                intent.putExtra(DetailFragment.ARG_DETAIL_ID, );
+                intent.putExtra(DetailFragment.ARG_DETAIL_ID, String.valueOf(getLayoutPosition()) );
                 view.getContext().startActivity(intent);
             }
-        }); */
+        });
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int itemPosition = getLayoutPosition();
+                Intent intent = new Intent(view.getContext(), DetailFragment.class);
+                //intent.putExtra("position", itemPosition + "");
+                intent.putExtra(DetailFragment.ARG_DETAIL_ID, Parcels.wrap(mRestaurants));
+                view.getContext().startActivity(intent);
+            }
+        });*/
 
     }
 }

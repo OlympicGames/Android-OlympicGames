@@ -6,10 +6,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.senevent.faneula.mData.Movie;
+
+import org.parceler.Parcels;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -27,6 +35,9 @@ public class DetailFragment extends Activity {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public static final String ARG_DETAIL_ID = "item_id";
+    Movie mMovies;
+
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -34,7 +45,9 @@ public class DetailFragment extends Activity {
 
     //Naby
     String passedVar=null;
+    String passedVar2=null;
     private TextView passView = null;
+    private TextView passView2 = null;
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,10 +76,17 @@ public class DetailFragment extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_detail);
+        mMovies = Parcels.unwrap(getIntent().getParcelableExtra("movies"));
 
-        passedVar = getIntent().getStringExtra(ARG_DETAIL_ID);
+        passedVar = mMovies.getName();
+        passedVar2 = mMovies.getDetail();
+
+     //passedVar = getIntent().getStringExtra(ARG_DETAIL_ID);
         passView = (TextView)findViewById(R.id.passed);
         passView.setText(passedVar);
+
+        passView2 = (TextView)findViewById(R.id.passed2);
+        passView2.setText(passedVar2);
 
     }
 
