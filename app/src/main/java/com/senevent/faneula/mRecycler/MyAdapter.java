@@ -2,16 +2,13 @@ package com.senevent.faneula.mRecycler;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import org.parceler.Parcels;
 import com.senevent.faneula.DetailFragment;
-import com.senevent.faneula.ItemDetailFragment;
 import com.senevent.faneula.R;
 import com.senevent.faneula.mData.Movie;
 import com.senevent.faneula.mPicasso.PicassoClient;
@@ -49,35 +46,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // int itemPosition = getLayoutPosition();
                 Intent intent = new Intent(view.getContext(), DetailFragment.class);
                 //intent.putExtra("position", itemPosition + "");
                 intent.putExtra("movies", Parcels.wrap(movies.get(position)));
                 view.getContext().startActivity(intent);
+
+
             }
         });
-
-     /* holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              //  if (mTwoPane) {
-                    Bundle arguments = new Bundle();
-                    arguments.putString(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                    ItemDetailFragment fragment = new ItemDetailFragment();
-                    fragment.setArguments(arguments);
-
-                      getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, fragment)
-                            .commit();
-           /*  } else {
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, ItemDetailActivity.class);
-                    intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-
-                    context.startActivity(intent);
-                } */
-            /*}
-        });*/
 
     }
 
@@ -86,23 +62,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder>{
         return movies.size();
     }
 
-    /**
-     * A dummy item representing a piece of content.
-     */
-    public static class DummyItem {
-        public final String id;
-        public final String content;
-        public final String details;
-
-        public DummyItem(String id, String content, String details) {
-            this.id = id;
-            this.content = content;
-            this.details = details;
-        }
-
-        @Override
-        public String toString() {
-            return content;
-        }
-    }
 }

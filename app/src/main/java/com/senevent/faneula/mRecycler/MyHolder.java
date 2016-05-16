@@ -1,20 +1,15 @@
 package com.senevent.faneula.mRecycler;
 
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 
 
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import com.senevent.faneula.DetailFragment;
-import com.senevent.faneula.ItemDetailFragment;
 import com.senevent.faneula.R;
 
 
@@ -28,7 +23,7 @@ public class MyHolder extends RecyclerView.ViewHolder {
     TextView nameTxt;
     TextView detailTxt;
     ImageView img;
-    public MyAdapter.DummyItem mItem;
+
 
 
     public MyHolder(final View itemView) {
@@ -39,32 +34,7 @@ public class MyHolder extends RecyclerView.ViewHolder {
         img= (ImageView) itemView.findViewById(R.id.movieImage);
 
 
-    /*   itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              //  Intent detailIntent = new Intent(v.getContext(), type.class);
-                //detailIntent.putExtra("MyClass", myclass);
-                //mContext.startActivity(detailIntent);
-               // String product = (String) listView.getItemAtPosition(position);
-              //  String product = (String) itemView.getVerticalScrollbarPosition();
-                Intent intent = new Intent(view.getContext(), DetailFragment.class);
-               //intent.putExtra("MyClass", MyHolder.getOrderId());
-            //    intent.putExtra(DetailFragment.ARG_DETAIL_ID, String.valueOf(getLayoutPosition()));
-                intent.putExtra(DetailFragment.ARG_DETAIL_ID, String.valueOf(getLayoutPosition()) );
-                view.getContext().startActivity(intent);
-            }
-        });
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int itemPosition = getLayoutPosition();
-                Intent intent = new Intent(view.getContext(), DetailFragment.class);
-                //intent.putExtra("position", itemPosition + "");
-                intent.putExtra(DetailFragment.ARG_DETAIL_ID, Parcels.wrap(mRestaurants));
-                view.getContext().startActivity(intent);
-            }
-        });*/
 
     }
 }
