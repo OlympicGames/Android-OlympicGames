@@ -24,6 +24,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder>{
     ArrayList<Movie> movies;
 
 
+    private String mNavTitles[]; // String Array to store the passed titles Value from MainActivity.java
+    private int mIcons[];       // Int Array to store the passed icons resource value from MainActivity.java
+
+    private String name;        //String Resource for header View Name
+    private int profile;        //int Resource for header view profile picture
+    private String email;
+
     public MyAdapter(Context c, ArrayList<Movie> movies) {
         this.c = c;
         this.movies = movies;
@@ -62,4 +69,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder>{
         return movies.size();
     }
 
+
+    public MyAdapter(String Titles[], int Icons[], String Name, String Email, int Profile){ // MyAdapter Constructor with titles and icons parameter
+        // titles, icons, name, email, profile pic are passed from the main activity as we
+        mNavTitles = Titles;                //have seen earlier
+        mIcons = Icons;
+        name = Name;
+        email = Email;
+        profile = Profile;                     //here we assign those passed values to the values we declared here
+        //in adapter
+
+
+
+    }
 }
