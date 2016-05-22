@@ -1,5 +1,6 @@
 package com.senevent.faneula;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.senevent.faneula.mFragment.FragmentTest;
 import com.senevent.faneula.mFragment.ListeEventFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -74,10 +77,20 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Fragment fragment;
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            // Handle the camera actio
+            fragment = new FragmentTest();
+           getSupportFragmentManager().beginTransaction().replace(R.id.activeId, fragment).commit();
+
+         //   ft.replace(R.id.container, fragment);
+           // ft.commit();
+
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -87,7 +100,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(getApplicationContext(), "Send", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
