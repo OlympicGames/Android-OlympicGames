@@ -20,6 +20,7 @@ import android.widget.EditText;
 import com.senevent.faneula.R;
 import com.senevent.faneula.mFireBase.FireBaseClient;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */

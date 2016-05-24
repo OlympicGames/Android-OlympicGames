@@ -14,6 +14,9 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.senevent.faneula.R;
 import com.senevent.faneula.mData.Movie;
 
@@ -22,6 +25,7 @@ import org.parceler.Parcels;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import com.facebook.FacebookSdk;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,6 +61,8 @@ public class LoadDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_load_detail, container, false);
+
+      //  FacebookSdk.sdkInitialize(getApplicationContext());
         mMovies = Parcels.unwrap(getActivity().getIntent().getParcelableExtra("movies"));
 
 
@@ -96,6 +102,18 @@ public class LoadDetailFragment extends Fragment {
 
                 }
 */
+
+                Firebase ref = new Firebase("https://senevent.firebaseio.com");
+                ref.authWithPassword("bobtony@firebase.com", "correcthorsebatterystaple", new Firebase.AuthResultHandler() {
+                    @Override
+                    public void onAuthenticated(AuthData authData) {
+                        System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+                    }
+                    @Override
+                    public void onAuthenticationError(FirebaseError firebaseError) {
+                        // there was an error
+                    }
+                });
 
             }
         });
