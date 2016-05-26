@@ -80,29 +80,28 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment;
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         int id = item.getItemId();
+        if(id == R.id.nav_home){
+            Fragment eventListFragment = new ListeEventFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.activeId, eventListFragment).commit();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-            // Handle the camera actio
+        }
+        else if (id == R.id.nav_events) {
             fragment = new FragmentTest();
-           getSupportFragmentManager().beginTransaction().replace(R.id.activeId, fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.activeId, fragment).commit();
+        } else if (id == R.id.nav_info) {
 
-         //   ft.replace(R.id.container, fragment);
-           // ft.commit();
+        } else if (id == R.id.nav_info) {
 
+        } else if (id == R.id.nav_outils) {
 
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
+        }
+        /* else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
             Toast.makeText(getApplicationContext(), "Send", Toast.LENGTH_SHORT).show();
         }
 
+        */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
