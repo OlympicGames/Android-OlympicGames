@@ -3,6 +3,7 @@
 package="com.senevent.faneula" >
 
 <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 <application
     android:allowBackup="true"
@@ -20,7 +21,7 @@ package="com.senevent.faneula" >
         </intent-filter>
     </activity>
     <activity
-        android:name=".DetailFragment"
+        android:name=".DetailActivity"
         android:label="detail event"
         android:parentActivityName=".MainActivity" >
         <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -46,6 +47,29 @@ package="com.senevent.faneula" >
         android:name="com.facebook.FacebookContentProvider"
     android:exported="true" />
 
+
+
+
+    <activity
+        android:name=".mFacebook.LoginActivity"
+        android:label="@string/app_name" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        <!--meta-data
+            android:name=".DetailActivity"
+            android:value=".DetailActivity" /-->
+    </activity>
+
+    <activity
+        android:name=".mFacebook.LogoutActivity"
+        android:label="@string/title_activity_logout" >
+        <!--meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".DetailActivity" /-->
+    </activity>
 </application>
 
 </manifest>

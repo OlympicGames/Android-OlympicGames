@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_settings"
-        android:title="Setting"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.senevent.menuprincipale.MainActivity">
+    <item
+        android:id="@+id/action_search"
+        android:title="Reche"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_action_search"
+        app:showAsAction="ifRoom" />
+
+    <!--item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" /-->
+
+    <item
+        android:id="@+id/action_connexion"
+        android:title="Connexion"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_action_auth"
+        app:showAsAction="ifRoom" />
 </menu>

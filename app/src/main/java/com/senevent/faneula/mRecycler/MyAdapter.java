@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.parceler.Parcels;
-import com.senevent.faneula.DetailFragment;
+import com.senevent.faneula.DetailActivity;
 import com.senevent.faneula.R;
 import com.senevent.faneula.mData.Movie;
 import com.senevent.faneula.mPicasso.PicassoClient;
@@ -53,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DetailFragment.class);
+                Intent intent = new Intent(view.getContext(), DetailActivity.class);
                 //intent.putExtra("position", itemPosition + "");
                 intent.putExtra("movies", Parcels.wrap(movies.get(position)));
                 view.getContext().startActivity(intent);
